@@ -9,11 +9,11 @@ altura = st.number_input(label = "Insira sua :red[altura]:", placeholder="ex:1.7
 
 st.markdown("---")
 
-imc = float(peso/(altura**2))
-imc = round(imc,2)
-
 if st.button(":red[CONFIRMAR]"):
     st.markdown("---")
+
+imc = float(peso/(altura**2))
+imc = round(imc,2)
 
     st.subheader(f"O valor do seu :red[IMC] é: {imc}")
     if imc <= 18.5:

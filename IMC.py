@@ -19,7 +19,7 @@ if st.button(":red[CONFIRMAR]"):
     st.subheader(f"O valor do seu :red[IMC] é: {imc}")
     st.markdown("---")
     # Substitua pelo ID do seu arquivo no Google Drive
-    file_id = "https://drive.google.com/file/d/120BXxDp-v1y2Uh-KTce4wjbTrPpGXdG1/view?usp=sharing"
+    file_id = "120BXxDp-v1y2Uh-KTce4wjbTrPpGXdG1"
     download_url = f"https://drive.google.com/uc?export=download&id={file_id}"
 
     st.title("Baixe aqui uma dieta personalizada para o seu :red[*imc*]!")

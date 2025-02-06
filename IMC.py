@@ -54,5 +54,8 @@ if st.button(":red[CONFIRMAR]"):
     elif imc > 40:
         st.subheader(":red[EMAGRECIMENTO URGENTE, PROCURE UM MÉDICO, VOCÊ TEM OBESIDADE GRAU 3]")
     
-    st.feedback("stars")
+    sentiment_mapping = [":material/thumb_down:", ":material/thumb_up:"]
+    selected = st.feedback("thumbs")
+    if selected is not None:
+        st.markdown(f"Obrigado pelo {sentiment_mapping[selected]}")
         

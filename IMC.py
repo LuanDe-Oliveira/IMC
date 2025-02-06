@@ -22,22 +22,24 @@ if st.button(":red[CONFIRMAR]"):
     file_id = "https://drive.google.com/file/d/120BXxDp-v1y2Uh-KTce4wjbTrPpGXdG1/view?usp=sharing"
     download_url = f"https://drive.google.com/uc?export=download&id={file_id}"
 
-    st.title("Download de PDF do Google Drive")
+    st.title("Baixe aqui uma dieta personalizada para o seu :red[*imc*]!")
 
-# Fazendo o download do arquivo
-    response = requests.get(download_url)
-    if response.status_code == 200:
+    try:
+        response = requests.get(download_url, timeout=10)
+        response.raise_for_status()  # Lança erro se a requisição falhar
+
         pdf_data = BytesIO(response.content)
-    
-    # Criando o botão de download
+
         st.download_button(
-            label="Baixar PDF",
+            label="Baixe seu PDF",
             data=pdf_data,
             file_name="Dieta para Pessoas com Diferentes Faixas de IMC.pdf",
             mime="application/pdf"
-         )
-    else:
-        st.error("Erro ao baixar o arquivo. Verifique o ID e permissões do Google Drive.")
+        )
+
+    except requests.exceptions.RequestException as e:
+        st.error(f"Erro ao baixar o arquivo: {e}")
+    
     if imc <= 18.5:
         st.subheader("Muito magro, está :red[abaixo do peso]")
     elif 18.5 < imc <= 24.9:

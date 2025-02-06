@@ -31,7 +31,7 @@ if st.button(":red[CONFIRMAR]"):
         pdf_data = BytesIO(response.content)
 
         st.download_button(
-            label="Baixe seu PDF",
+            label=":red[Baixe seu *PDF* aqui]",
             data=pdf_data,
             file_name="Dieta para Pessoas com Diferentes Faixas de IMC.pdf",
             mime="application/pdf"

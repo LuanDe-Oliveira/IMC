@@ -54,8 +54,5 @@ if st.button(":red[CONFIRMAR]"):
     elif imc > 40:
         st.subheader(":red[EMAGRECIMENTO URGENTE, PROCURE UM MÉDICO, VOCÊ TEM OBESIDADE GRAU 3]")
     
-    selected = st.feedback("stars")
-    if selected is not None:
-        if st.button('Enviar'):
-            st.write('Obrigado pelo seu :red[*comentário*]')
+    st.feedback("stars")
         

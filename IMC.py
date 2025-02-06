@@ -58,4 +58,3 @@ if st.button(":red[CONFIRMAR]"):
     selected = st.feedback("thumbs")
     if selected is not None:
         st.markdown(f"Obrigado pelo {sentiment_mapping[selected]}")
-        

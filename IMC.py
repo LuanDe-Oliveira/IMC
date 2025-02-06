@@ -53,3 +53,7 @@ if st.button(":red[CONFIRMAR]"):
         st.subheader("CUIDADO! Você tem :red[obesidade grau 2]")
     elif imc > 40:
         st.subheader(":red[EMAGRECIMENTO URGENTE, PROCURE UM MÉDICO, VOCÊ TEM OBESIDADE GRAU 3]")
+    
+    selected = st.feedback("stars")
+    if selected is not None:
+        st.markdown('---')

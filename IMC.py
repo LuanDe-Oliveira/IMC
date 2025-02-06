@@ -2,6 +2,9 @@ import streamlit as st
 import requests
 from io import BytesIO
 
+file_id = "120BXxDp-v1y2Uh-KTce4wjbTrPpGXdG1"
+download_url = f"https://drive.google.com/uc?export=download&id={file_id}"
+
 st.title("CALCULO DO :red[*IMC*]")
 st.subheader("O :red[*IMC*] é uma forma de avaliar se uma pessoa está com o peso ideal, abaixo do peso, acima do peso ou :red[OBESA].")
 st.markdown("---")
@@ -19,8 +22,6 @@ if st.button(":red[CONFIRMAR]"):
     st.subheader(f"O valor do seu :red[IMC] é: {imc}")
     st.markdown("---")
     # Substitua pelo ID do seu arquivo no Google Drive
-    file_id = "120BXxDp-v1y2Uh-KTce4wjbTrPpGXdG1"
-    download_url = f"https://drive.google.com/uc?export=download&id={file_id}"
 
     st.title("Baixe aqui uma dieta personalizada para o seu :red[*imc*]!")
 

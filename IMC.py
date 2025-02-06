@@ -1,11 +1,14 @@
 import streamlit as st
+import requests
+from io import BytesIO
+
 st.title("CALCULO DO :red[*IMC*]")
 st.subheader("O :red[*IMC*] é uma forma de avaliar se uma pessoa está com o peso ideal, abaixo do peso, acima do peso ou :red[OBESA].")
 st.markdown("---")
 
 
-peso = st.number_input(label = "Insira seu :red[peso](kg):", value=None, placeholder="ex:68.23")
-altura = st.number_input(label = "Insira sua :red[altura]:", value=None, placeholder="ex:1.70")
+peso = st.number_input(label = "Insira seu :red[peso](kg):", value=None, placeholder="ex: 68,23")
+altura = st.number_input(label = "Insira sua :red[altura](m):", value=None, placeholder="ex: 1,70")
 
 st.markdown("---")
 
@@ -14,6 +17,27 @@ if st.button(":red[CONFIRMAR]"):
     imc = float(peso/(altura**2))
     imc = round(imc,2)
     st.subheader(f"O valor do seu :red[IMC] é: {imc}")
+    st.markdown("---")
+    # Substitua pelo ID do seu arquivo no Google Drive
+    file_id = "https://drive.google.com/file/d/120BXxDp-v1y2Uh-KTce4wjbTrPpGXdG1/view?usp=sharing"
+    download_url = f"https://drive.google.com/uc?export=download&id={file_id}"
+
+    st.title("Download de PDF do Google Drive")
+
+# Fazendo o download do arquivo
+    response = requests.get(download_url)
+    if response.status_code == 200:
+        pdf_data = BytesIO(response.content)
+    
+    # Criando o botão de download
+        st.download_button(
+            label="Baixar PDF",
+            data=pdf_data,
+            file_name="Dieta para Pessoas com Diferentes Faixas de IMC.pdf",
+            mime="application/pdf"
+         )
+    else:
+        st.error("Erro ao baixar o arquivo. Verifique o ID e permissões do Google Drive.")
     if imc <= 18.5:
         st.subheader("Muito magro, está :red[abaixo do peso]")
     elif 18.5 < imc <= 24.9:

@@ -56,4 +56,6 @@ if st.button(":red[CONFIRMAR]"):
     
     selected = st.feedback("stars")
     if selected is not None:
-        st.markdown('---')
+        if st.button('Enviar'):
+            st.write('Obrigado pelo seu :red[*comentário*])
+        

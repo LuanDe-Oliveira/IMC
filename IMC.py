@@ -4,8 +4,8 @@ st.subheader("O :red[*IMC*] é uma forma de avaliar se uma pessoa está com o pe
 st.markdown("---")
 
 
-peso = st.number_input(label = "Insira seu :red[peso](kg):", placeholder="ex:68.23")
-altura = st.number_input(label = "Insira sua :red[altura]:", placeholder="ex:1.70")
+peso = st.number_input(label = "Insira seu :red[peso](kg):", value=None, placeholder="ex:68.23")
+altura = st.number_input(label = "Insira sua :red[altura]:", value=None, placeholder="ex:1.70")
 
 st.markdown("---")
 
